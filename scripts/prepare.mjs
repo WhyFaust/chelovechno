@@ -45,16 +45,19 @@ assert(Array.isArray(cases) && cases.length > 0, 'Missing evaluation cases');
 assert.equal(new Set(cases.map((item) => item.id)).size, cases.length, 'Duplicate case IDs');
 for (const item of cases) {
   assert(item.id && item.prompt && item.checks?.length, 'Incomplete evaluation case');
-  for (const [platform, post] of Object.entries(item.example_outputs ?? {})) {
-    assert(!post.includes('\u2014'), `${item.id}: em dash in ${platform} example`);
-    if (platform === 'threads') {
-      assert([...post].length <= 500, `${item.id}: Threads example exceeds 500 characters`);
+  for (const [label, text] of Object.entries(item.example_outputs ?? {})) {
+    if (item.example_constraints?.no_em_dash) {
+      assert(!text.includes('\u2014'), `${item.id}: em dash in ${label} example`);
+    }
+    const limit = item.example_constraints?.max_characters?.[label];
+    if (limit !== undefined) {
+      assert([...text].length <= limit, `${item.id}: ${label} example exceeds ${limit} characters`);
     }
   }
 }
 
 let portable = entry;
-for (const name of ['research', 'platforms', 'editing']) {
+for (const name of ['research', 'adaptation', 'editing']) {
   const body = await read(resolve(skill, `references/${name}.md`));
   portable = portable.replaceAll(`(references/${name}.md)`, `(#reference-${name})`);
   portable += `\n\n<a id="reference-${name}"></a>\n\n${body}`;
