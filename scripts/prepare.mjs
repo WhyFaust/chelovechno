@@ -6,13 +6,6 @@ import { fileURLToPath } from 'node:url';
 const root = fileURLToPath(new URL('../', import.meta.url));
 const skill = resolve(root, 'skills/chelovechno');
 const read = (path) => readFile(path, 'utf8');
-const entry = await read(resolve(skill, 'SKILL.md'));
-const frontmatter = entry.match(/^---\n([\s\S]+?)\n---\n/);
-assert(frontmatter, 'SKILL.md: missing frontmatter');
-assert.match(frontmatter[1], new RegExp(`^name: ${basename(skill)}$`, 'm'));
-const description = frontmatter[1].match(/^description: "(.+)"$/m)?.[1];
-assert(description && description.length <= 1024, 'Invalid description');
-assert.match(frontmatter[1], /^license: MIT$/m);
 assert.equal(await read(resolve(skill, 'LICENSE.txt')), await read(resolve(root, 'LICENSE')));
 
 async function checkLinks(directory) {
@@ -56,19 +49,35 @@ for (const item of cases) {
   }
 }
 
-let portable = entry;
-for (const name of ['research', 'adaptation', 'editing']) {
-  const body = await read(resolve(skill, `references/${name}.md`));
-  portable = portable.replaceAll(`(references/${name}.md)`, `(#reference-${name})`);
-  portable += `\n\n<a id="reference-${name}"></a>\n\n${body}`;
-  assert(portable.includes(body), `Missing reference: ${name}`);
-}
-portable += `\n\n# Лицензия\n\n${await read(resolve(root, 'LICENSE'))}`;
-assert(!/\]\(references\//.test(portable), 'Unresolved reference in portable prompt');
-for (const match of portable.matchAll(/\]\(#(reference-[^)]+)\)/g)) {
-  assert(portable.includes(`id="${match[1]}"`), `Missing anchor: ${match[1]}`);
-}
-assert(portable.startsWith(frontmatter[0]), 'Portable prompt lost skill metadata');
 await mkdir(resolve(root, 'dist'), { recursive: true });
-await writeFile(resolve(root, 'dist/chelovechno.md'), portable, 'utf8');
-console.log(`OK: skill structure, local links, ${cases.length} case definitions, portable prompt`);
+let expectedVersion;
+for (const [suffix, licenseHeading] of [['', 'Лицензия'], ['_en', 'License']]) {
+  const filename = `SKILL${suffix}.md`;
+  const entry = await read(resolve(skill, filename));
+  const frontmatter = entry.match(/^---\n([\s\S]+?)\n---\n/);
+  assert(frontmatter, `${filename}: missing frontmatter`);
+  assert.match(frontmatter[1], new RegExp(`^name: ${basename(skill)}$`, 'm'));
+  const description = frontmatter[1].match(/^description: "(.+)"$/m)?.[1];
+  assert(description && description.length <= 1024, `${filename}: invalid description`);
+  assert.match(frontmatter[1], /^license: MIT$/m);
+  const version = frontmatter[1].match(/^  version: "([^"]+)"$/m)?.[1];
+  assert(version, `${filename}: missing version`);
+  expectedVersion ??= version;
+  assert.equal(version, expectedVersion, 'Skill translations have different versions');
+
+  let portable = entry;
+  for (const name of ['research', 'adaptation', 'editing']) {
+    const body = await read(resolve(skill, `references/${name}${suffix}.md`));
+    portable = portable.replaceAll(`(references/${name}${suffix}.md)`, `(#reference-${name})`);
+    portable += `\n\n<a id="reference-${name}"></a>\n\n${body}`;
+    assert(portable.includes(body), `Missing reference: ${name}${suffix}`);
+  }
+  portable += `\n\n# ${licenseHeading}\n\n${await read(resolve(root, 'LICENSE'))}`;
+  assert(!/\]\(references\//.test(portable), 'Unresolved reference in portable prompt');
+  for (const match of portable.matchAll(/\]\(#(reference-[^)]+)\)/g)) {
+    assert(portable.includes(`id="${match[1]}"`), `Missing anchor: ${match[1]}`);
+  }
+  assert(portable.startsWith(frontmatter[0]), 'Portable prompt lost skill metadata');
+  await writeFile(resolve(root, `dist/chelovechno${suffix}.md`), portable, 'utf8');
+}
+console.log(`OK: RU/EN skill structure, local links, ${cases.length} case definitions, 2 portable prompts`);

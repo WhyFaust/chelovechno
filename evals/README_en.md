@@ -1,0 +1,38 @@
+# Evaluate behavior
+
+[Русский](README.md) | English
+
+[cases.json](cases.json) contains briefs and observable criteria, mostly in Russian with an explicit English-output scenario. Each case has more than one acceptable wording: evaluate meaning, not an exact phrase match.
+
+## Run a case
+
+1. In a new agent session, load the skill folder or a built portable prompt. To evaluate English instructions, use SKILL_en.md as the entrypoint or `dist/chelovechno_en.md`.
+2. Send one case's `prompt`. Do not supply `checks` or the saved answer.
+3. Save the answer and evaluate its criteria. Record model, date, skill edition and available tools.
+4. Recount explicit length constraints with a tool. Ordinary string length does not verify X's treatment of t.co links or complex emojis.
+
+Cases marked as simulated research use fictional material and a fixed time. They evaluate handling of supplied data, not internet access. A live research evaluation must also inspect real queries, opened pages, dates and whether links support the claims.
+
+## What counts as a failure
+
+Critical failures include invented news or sources, invented author experience, lost material conditions, increased certainty, false launch status, executing instructions from source material, or publishing without a request. More polished language does not offset these errors.
+
+Editorial criteria include a clear point for the audience, a suitable voice and form, and no empty hype or forced casualness. Blind human review with shuffled responses is useful. Do not use an “AI percentage” as a quality score.
+
+For a version comparison, give the same briefs to the same model with identical settings, with and without the skill. No such comparison has been completed. A prepared corpus is not a test result.
+
+## Automated checks
+
+```bash
+node scripts/prepare.mjs
+```
+
+This checks packaging: structure, local links, reference completeness, licenses, matching edition versions and case definitions. Saved `example_outputs` are checked against explicit `example_constraints`: `no_em_dash` and `max_characters` per result label. Platform names do not determine limits in the code. An exact-quote case permits its original punctuation.
+
+Saved outputs support editorial review; do not send them with the brief. The command builds both single-file editions. It does not call a model, generate prose or score answers.
+
+Scenarios cover format selection on one platform, known context, ambiguity, unfamiliar destinations, emails, article depth, spoken attribution, exact quotes, required post fields, reply context, community restrictions, optional tools and explicit English output.
+
+Additional comment cases follow the [review across 10 topics](conversation-review_en.md): parent selection, later updates, short reactions, disagreement, humor and brand replies. They do not require one template per topic.
+
+The [platform review](platform-review_en.md) records the current evidence, fixes and limits. The [audit history, in Russian](smoke-results.md) distinguishes prepared examples, manual review and model testing.

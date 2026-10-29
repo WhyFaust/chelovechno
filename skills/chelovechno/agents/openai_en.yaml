@@ -1,0 +1,4 @@
+interface:
+  display_name: "Chelovechno"
+  short_description: "Authored prose, comments and replies for your task"
+  default_prompt: "Use $chelovechno to draft a text or reply for my task, account for context and preserve accurate facts and my voice."
