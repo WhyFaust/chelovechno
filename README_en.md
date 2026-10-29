@@ -66,7 +66,7 @@ A single file is useful where folder-based skills cannot be installed. It does n
 
 The skill has no fixed platform modes. It prioritizes the requested deliverable, conversation context and intended use. A video description and spoken script should differ even when both are for YouTube. A new platform does not need a new handbook.
 
-With enough context, the agent writes immediately. If “for YouTube” could mean a script, description or title, it asks one question with choices. Required components of one deliverable, such as a post's title and body, are included unless you request only one field.
+With enough context, the agent writes immediately. If "for YouTube" could mean a script, description or title, it asks one question with choices. Required components of one deliverable, such as a post's title and body, are included unless you request only one field.
 
 **Photo captions**
 
@@ -118,7 +118,7 @@ Ask whether the plan works. Calm and businesslike, without an invented signature
 
 ```text
 Write an English comment on this post: [post]. I want to support the author
-without invented “I've been there too” stories or unsolicited advice.
+without invented "I've been there too" stories or unsolicited advice.
 ```
 
 ```text
@@ -160,7 +160,7 @@ See the [setup and access notes](docs/agent-reach_en.md). There is no automatic 
 
 Understand the task and format, choose a useful point or source, then write for a particular reader or listener.
 
-News explains what changed for the reader; an article develops a subject; an email clarifies the situation and action; a script works aloud. Select details by purpose and retain material qualifications. By default, authored prose avoids the em dash U+2014 by restructuring sentences. Exact quotes and mandatory wording stay intact. Do not invent personal experience or add artificial mistakes. See [research and sources](SOURCES_en.md).
+News explains what changed for the reader; an article develops a subject; an email clarifies the situation and action; a script works aloud. Select details by purpose and retain material qualifications. By default, authored prose avoids the em dash U+2014 by restructuring sentences and uses straight double quotes U+0022 when needed. Exact quotes and mandatory wording stay intact. Do not invent personal experience or add artificial mistakes. See [research and sources](SOURCES_en.md).
 
 ## Examples and checks
 
@@ -177,7 +177,7 @@ Development requires Node.js 22 or later, with no dependencies to install:
 node scripts/prepare.mjs
 ```
 
-This checks structure, local links and completeness of both editions, then builds `dist/chelovechno.md` and `dist/chelovechno_en.md`. GitHub Actions runs the same checks. They verify packaging, not a “humanity score.” Behavioral changes are reviewed using the scenarios in `evals/`.
+This checks structure, local links and completeness of both editions, then builds `dist/chelovechno.md` and `dist/chelovechno_en.md`. GitHub Actions runs the same checks. They verify packaging, not a "humanity score." Behavioral changes are reviewed using the scenarios in `evals/`.
 
 Quality depends on the model, material and task. This skill does not determine authorship or promise AI-detector results. News still needs source verification; the author's personal experience must come from the author.
 

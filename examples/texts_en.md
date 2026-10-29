@@ -22,11 +22,11 @@ The caption uses the supplied scene without inventing feelings, weather history 
 >
 > Send us a direct message to order.
 
-The starting price, business days and “usually” remain. No stock levels, paper quality or limited availability are invented.
+The starting price, business days and "usually" remain. No stock levels, paper quality or limited availability are invented.
 
 ## Edit precisely
 
-**Original:** “We are pleased to announce that we plan to open registration on November 12. Participation may cost around 3,000 RUB. The final price has not yet been approved.”
+**Original:** "We are pleased to announce that we plan to open registration on November 12. Participation may cost around 3,000 RUB. The final price has not yet been approved."
 
 > We plan to open registration on November 12. Participation may cost around 3,000 RUB, but the final price has not been approved yet.
 
@@ -34,7 +34,7 @@ A plan remains a plan. An approximate, unapproved price does not become a firm q
 
 ## Voice from a sample
 
-**Fictional sample:** “Wrote the to-do list. Read the to-do list. Enough paperwork for today.”
+**Fictional sample:** "Wrote the to-do list. Read the to-do list. Enough paperwork for today."
 
 **New brief:** the author says they turned off notifications to read a book. Concise, lightly ironic English.
 
@@ -44,7 +44,7 @@ Rhythm and humor transfer; the new action comes from the new brief.
 
 ## Missing material
 
-**Request:** “Find something fresh and write me a post.” No topic or destination is known.
+**Request:** "Find something fresh and write me a post." No topic or destination is known.
 
 > What subject and destination should I use: technology for a personal feed, culture for your channel, or your professional field? You can name your own combination.
 
@@ -68,7 +68,7 @@ The agent does not substitute invented news. Date and conflicting-source scenari
 
 > Want to make a notebook but aren't sure where to start? In this video, we'll go through choosing paper, stitching the pages and attaching the cover. Let's start with the paper.
 
-The second request already establishes speech. It does not need another format question. “For YouTube about notebooks” alone would warrant one question with choices.
+The second request already establishes speech. It does not need another format question. "For YouTube about notebooks" alone would warrant one question with choices.
 
 ## Business email
 
@@ -94,7 +94,7 @@ The plan and condition remain. No invented signature, agreement or friendly back
 
 The title belongs to the requested post. The question serves a discussion brief rather than a universal engagement template.
 
-**Different brief:** reply to “Can I order now?” using supplied facts: orders open November 12. Return only the English reply.
+**Different brief:** reply to "Can I order now?" using supplied facts: orders open November 12. Return only the English reply.
 
 > Orders open on November 12. You'll be able to send us a direct message then.
 

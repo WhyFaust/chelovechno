@@ -6,7 +6,7 @@ Read for news, new publications, changed facts and requests to find material. Af
 
 Take the topic, audience, geography, deliverable, destination and period from the request. If the topic or interests are missing, ask with choices; do not choose the author's niche from random trends.
 
-Establish the environment's date, time and available time zone. If exact time is unavailable, state the calendar dates checked rather than promise a precise hourly window. For fresh topics, default to the last 72 hours. “Today,” “this week” or explicit dates override that default. Research for history, explanatory articles and other work follows the task rather than the news window.
+Establish the environment's date, time and available time zone. If exact time is unavailable, state the calendar dates checked rather than promise a precise hourly window. For fresh topics, default to the last 72 hours. "Today," "this week" or explicit dates override that default. Research for history, explanatory articles and other work follows the task rather than the news window.
 
 Use the agent's available search, browser or suitable connected source. This skill requires no particular provider, API key or paid subscription. Do not bypass private channels or access restrictions.
 
@@ -18,13 +18,13 @@ Agent Reach is optional. Without it, use available search, browsers and connecto
 
 1. Find several relevant candidates. For international topics, search in the original source's language too. A recency filter helps selection but does not prove a date.
 2. Open as much of the material as is available. A headline, search snippet, preview or another agent's summary is insufficient for a key claim. If the full text is restricted, rely only on the accessible part and disclose the limitation, or choose another source.
-3. Reach the primary source: an author's announcement, release, document, study, recorded talk or original post. The company's announcement usually supports “the company announced X.” Consequences, disputed news or allegations need independent support; several copies of the same report do not provide it.
+3. Reach the primary source: an author's announcement, release, document, study, recorded talk or original post. The company's announcement usually supports "the company announced X." Consequences, disputed news or allegations need independent support; several copies of the same report do not provide it.
 4. Separate facts, interested parties' claims and interpretation. A brand's performance claim remains its claim. Do not present a preprint as established scientific consensus.
 5. For each key fact, verify what happened, who reported it, the event date, publication or update date, direct link and material conditions. Do not treat an unknown event date as established.
 
-A new article about an old event is a new publication, not a new launch. A page update does not prove the underlying fact changed. A future launch remains a plan. Convert to the user's time zone before writing “today” or “yesterday”; use an absolute date when uncertain.
+A new article about an old event is a new publication, not a new launch. A page update does not prove the underlying fact changed. A future launch remains a plan. Convert to the user's time zone before writing "today" or "yesterday"; use an absolute date when uncertain.
 
-“Viral,” “everyone is discussing” and “the leading trend” need visible grounds. Do not infer them from a few found posts. Views and reactions need a measurement date and context.
+"Viral," "everyone is discussing" and "the leading trend" need visible grounds. Do not infer them from a few found posts. Views and reactions need a measurement date and context.
 
 Other people's posts can illustrate presentation or establish what their authors think. They do not verify the product capabilities, causes or results described in them; those claims need suitable sources.
 
@@ -42,7 +42,7 @@ Choose an angle first: what changed, what it means for the reader, or which ques
 
 Do not invent the author's product experience, insider knowledge or feelings. The user must supply their opinion, or you should explicitly offer it as a possible editorial angle. Causal and quantitative conclusions need evidence.
 
-If the author's unknown stance changes the entire result, ask with choices: “A news brief, a practical analysis or a critical view?” If the request already defines the angle, proceed.
+If the author's unknown stance changes the entire result, ask with choices: "A news brief, a practical analysis or a critical view?" If the request already defines the angle, proceed.
 
 Fit attribution to the form: a link in readable text, a brief source name in speech, or a separate list for the author. Do not read service URLs aloud or automatically insert them into every short field. If a link goes inside the final field, include it in the length budget.
 

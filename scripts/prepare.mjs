@@ -42,6 +42,9 @@ for (const item of cases) {
     if (item.example_constraints?.no_em_dash) {
       assert(!text.includes('\u2014'), `${item.id}: em dash in ${label} example`);
     }
+    if (item.example_constraints?.no_typographic_quotes) {
+      assert(!/[\u00ab\u00bb\u2039\u203a\u201c-\u201f]/u.test(text), `${item.id}: typographic quotes in ${label} example`);
+    }
     const limit = item.example_constraints?.max_characters?.[label];
     if (limit !== undefined) {
       assert([...text].length <= limit, `${item.id}: ${label} example exceeds ${limit} characters`);

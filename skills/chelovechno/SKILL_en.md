@@ -4,7 +4,7 @@ description: "Write, edit and adapt authored prose with a natural voice: posts, 
 license: MIT
 metadata:
   author: WhyFaust
-  version: "0.3.0"
+  version: "0.3.1"
 ---
 
 # Chelovechno
@@ -17,7 +17,7 @@ Use what the conversation and materials already establish. Prioritize explicit f
 
 Work out what you are making, for whom, why, where it will appear, whether it will be read or heard, and whose voice it uses. Account for length, tone and samples when supplied. Do not print this internal checklist.
 
-If the request and context establish the format, proceed. A minor missing detail is no reason to stop. When alternatives would produce substantially different deliverables, ask one short question with two or three choices and room for a free answer. For example, “for YouTube” alone might mean a title, description or script; “a video description for YouTube” already defines the task. Do not produce an entire content package instead of the one requested item.
+If the request and context establish the format, proceed. A minor missing detail is no reason to stop. When alternatives would produce substantially different deliverables, ask one short question with two or three choices and room for a free answer. For example, "for YouTube" alone might mean a title, description or script; "a video description for YouTube" already defines the task. Do not produce an entire content package instead of the one requested item.
 
 Defaults: Russian, one finished result, tone suited to the task. An explicit request for several options, another language, a structure or a length takes priority. Do not choose the author's interests or stance for them. For an image caption, use the image or its description; do not invent its contents.
 
@@ -46,7 +46,7 @@ Respect the stated constraints. When an exact limit or formatting support depend
 
 Decide what the reader or listener should understand, feel or do. Open as the material requires: a fact, observation, scene, greeting or question. Do not force every piece into one structure.
 
-For a short news item, select what changes for the reader and one or two details that explain it. For an article or analysis, cover the requested depth. Keep specifications and technical terms where they help understanding; other details can go in an author note or source link. Prefer ordinary language, such as “run it on your own servers” over “implement deployment on proprietary infrastructure.”
+For a short news item, select what changes for the reader and one or two details that explain it. For an article or analysis, cover the requested depth. Keep specifications and technical terms where they help understanding; other details can go in an author note or source link. Prefer ordinary language, such as "run it on your own servers" over "implement deployment on proprietary infrastructure."
 
 Personal writing keeps the author's manner; expert writing explains the grounds for conclusions; business writing clarifies the situation and the next action. Brand writing accounts for its audience and promises. Preserve prices, deadlines, conditions and contact details when they serve the task.
 
@@ -64,12 +64,12 @@ If search or a source is unavailable, say so and offer to work from supplied mat
 
 ## Proofread
 
-- **Accuracy.** Retained claims preserve names, numbers with units, dates, negations, conditions and uncertainty. You need not transfer every fact from a source. When shortening is allowed, remove secondary details while preserving qualifiers on retained claims, commitments and the recipient's action. “Plan to” must not become “launched,” or “may” a promise. Quotes and retained links must be exact; a new causal claim also needs evidence.
+- **Accuracy.** Retained claims preserve names, numbers with units, dates, negations, conditions and uncertainty. You need not transfer every fact from a source. When shortening is allowed, remove secondary details while preserving qualifiers on retained claims, commitments and the recipient's action. "Plan to" must not become "launched," or "may" a promise. Quotes and retained links must be exact; a new causal claim also needs evidence.
 - **Voice.** No invented personal experience. Explain a point to a particular audience without reciting a press release or forcing familiarity.
 - **Form.** Deliver the requested kind of text with appropriate depth and length. Speech works by ear, a reply does not restate the whole discussion, and a description has not become a script. Formatting suits the destination.
 - **Language.** Each paragraph or meaningful section contributes something. Remove mechanical openings, performative choppiness, casual fillers and an ending that repeats the whole piece.
 
-By default, do not use the em dash U+2014 in authored prose. Restructure the sentence or choose a period, comma, colon or parentheses as meaning requires. Do not replace every dash with a hyphen or en dash. Preserve exact quotations, names, code and mandatory wording; paraphrase a quotation without quotation marks when appropriate. A direct request from the author can change this punctuation preference; a dash in a sample alone does not. This is a style setting, not evidence of authorship.
+By default, do not use the em dash U+2014 in authored prose. Restructure the sentence or choose a period, comma, colon or parentheses as meaning requires. Do not replace every dash with a hyphen or en dash. When quotation marks are needed, use straight double quotes U+0022 (`"text"`), without guillemets or typographic double quotes. Do not add quotation marks where they serve no purpose. Preserve exact quotations, names, code and mandatory wording; paraphrase a quotation without quotation marks when appropriate. A direct request from the author can change this punctuation preference; a dash or different quotation marks in a sample alone do not. This is a style setting, not evidence of authorship.
 
 Judge questions, lists, repetition and individual words by their purpose. Do not add mistakes or invisible characters to disguise origin. Leave a good original alone if it meets the task. Stop when further edits would only reflect editorial taste.
 

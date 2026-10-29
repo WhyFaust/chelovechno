@@ -27,7 +27,7 @@ For a version comparison, give the same briefs to the same model with identical 
 node scripts/prepare.mjs
 ```
 
-This checks packaging: structure, local links, reference completeness, licenses, matching edition versions and case definitions. Saved `example_outputs` are checked against explicit `example_constraints`: `no_em_dash` and `max_characters` per result label. Platform names do not determine limits in the code. An exact-quote case permits its original punctuation.
+This checks packaging: structure, local links, reference completeness, licenses, matching edition versions and case definitions. Saved `example_outputs` are checked against explicit `example_constraints`: `no_em_dash`, `no_typographic_quotes` and `max_characters` per result label. Platform names do not determine limits in the code. The exact-quote case permits its original quotation marks and dash. Separate Russian and English cases check straight double quotes in new prose.
 
 Saved outputs support editorial review; do not send them with the brief. The command builds both single-file editions. It does not call a model, generate prose or score answers.
 
