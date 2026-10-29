@@ -45,6 +45,12 @@ assert(Array.isArray(cases) && cases.length > 0, 'Missing evaluation cases');
 assert.equal(new Set(cases.map((item) => item.id)).size, cases.length, 'Duplicate case IDs');
 for (const item of cases) {
   assert(item.id && item.prompt && item.checks?.length, 'Incomplete evaluation case');
+  for (const [platform, post] of Object.entries(item.example_outputs ?? {})) {
+    assert(!post.includes('\u2014'), `${item.id}: em dash in ${platform} example`);
+    if (platform === 'threads') {
+      assert([...post].length <= 500, `${item.id}: Threads example exceeds 500 characters`);
+    }
+  }
 }
 
 let portable = entry;
