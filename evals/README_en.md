@@ -19,7 +19,19 @@ Critical failures include invented news or sources, invented author experience, 
 
 Editorial criteria include a clear point for the audience, a suitable voice and form, and no empty hype or forced casualness. Blind human review with shuffled responses is useful. Do not use an “AI percentage” as a quality score.
 
-For a version comparison, give the same briefs to the same model with identical settings, with and without the skill. No such comparison has been completed. A prepared corpus is not a test result.
+For a version comparison, give the same briefs to the same model with identical settings, changing only the skill instructions. Running without the skill is a separate experiment; a prepared corpus is not a test result.
+
+## Openings and substantive participation
+
+The `attention-*` cases cover a useful post, a strong original, a request for virality with thin material, a technical condition, an honest description, a calm email, a gaming joke, a thank-you, varied posts, English output, typos-only editing and a worthwhile question. `article-depth` and `only-titles` also check article openings and video titles.
+
+For a blind comparison, save old- and new-version answers to identical briefs using the same model, settings and tools. First exclude critical failures in facts, qualifications or explicit constraints. Then shuffle each pair and hide version labels from the judge. Assess subject clarity, specificity, delivery on the opening's promise, voice and appropriate participation; a tie is valid. Keep raw answers, judgments, the hidden label mapping and run limitations. A model judge does not replace human review. [Completed checks, in Russian](smoke-results.md), are separate from this protocol.
+
+[October 30, 2026 results](attention-results.json): 14 pairs, one preference for 0.4.0 and 13 ties, with no critical failures; three additional English-instruction outputs passed review. The file preserves complete outputs, concealed labels, scores and limitations. The tools did not expose the exact model identifier or sampling parameters.
+
+In the report, `entrypoint_sha256` hashes the original `SKILL.md` bytes, while `skill_bundle_sha256` covers the entrypoint and three available references; English fields use the `_en` suffix. Both commits are recorded explicitly. `method.fingerprints` specifies file order, NUL separators, path encoding and brief serialization. Reproduce the hashes from raw Git blob bytes, preserving line endings. These fingerprints identify files made available to the agent, not its complete model context; references were read as needed.
+
+Audience response is a separate test after authorized publication: use comparable windows, language, platform and content type. Record only available impressions, substantive replies, saves and reposts; an unavailable metric is not zero. Growth after a single post does not establish a causal effect of its opening. A skill evaluation neither publishes content nor proves increased reach.
 
 ## Automated checks
 

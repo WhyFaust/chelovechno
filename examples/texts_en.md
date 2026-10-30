@@ -4,6 +4,22 @@
 
 All briefs below are fictional teaching examples, not reports about real events or the author's biography. English is explicitly requested in these briefs; the skill's default remains Russian.
 
+## From a vague opening to a specific one
+
+Every detail below comes from a fictional brief. These are possible editing directions, not required phrases or claims about the author's actual experience.
+
+| Vague opening | Possible opening | What should follow |
+|---|---|---|
+| A few thoughts on Python settings | The string "false" becomes True when passed directly to bool(). | Explain that a nonempty string is truthy under this particular conversion. Suggest explicitly recognizing true and false and rejecting unknown values. Do not generalize to all DEBUG settings or frameworks |
+| AI helps fix bugs | In this teaching example, the agent fixed one input. Another still failed. | Keep the fictional status clear. Show an additional check without promising proof of program correctness |
+| On consumables in games | The final boss is defeated. All 47 potions made it to the credits too. | The recognizable scene is enough. Do not claim the author played it or add advice and a closing question |
+| What do you think of this approach? | An unknown flag value: stop startup or disable the feature? | Before the closing question, explain the consequences: stopping exposes a configuration error; continuing with the feature off may hide it. Ask which conditions would change the choice |
+| About the timeline | Design planned for November 12: please confirm | Keep the planned status, approval-delay condition and request to confirm the plan in the email body. Do not invent urgency |
+
+A specific opening need not reveal the resolution. A teaching example could begin: "One test input passes; another fails. Let's examine why the fix worked for only one of them." The subject is clear while the explanation remains in the piece, which must provide it.
+
+A strong original such as "Local notes won't move to your new phone on their own" can stay when the rest explains the transfer. A reply to "Thanks, that helped!" can be just "Glad it helped!" When asked to fix typos only, even a vague opening stays intact.
+
 ## Photo caption
 
 **Brief:** a photo of an empty beach after rain. One short, calm English caption, without an invented trip story.

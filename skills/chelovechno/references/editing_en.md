@@ -12,6 +12,14 @@ A price, qualification, contact detail or request may sound awkward while servin
 
 When simplifying a news post or reducing technical overload, select facts useful to the reader. You may omit secondary specifications entirely. Keep material restrictions on retained claims: do not promise easy home use when a source describes a large server model, or unrestricted commercial use without the license conditions.
 
+## Check the opening and its promise
+
+Read a standalone piece's title or first sentence without neighboring posts: are the subject and reason to continue clear? Replace a generic introduction with a supported detail, consequence, dilemma or recognizable scene. You may delay the explanation or ending, but not hide the subject or material conditions.
+
+Compare the opening with the rest: does it provide the promised explanation, example, criterion or emotional point? Do not turn "may help" into "will solve it" or a particular case into a universal rule. When the material is thin, narrow the promise or clarify an essential gap instead of inventing experience, numbers or achievements.
+
+Check whether a closing question develops the content and is needed at all. Remove reaction bait and manufactured arguments; retain a specific question that helps explore the subject. For multiple results, compare openings, rhythm and endings, varying them as the content requires. A good opening need not be replaced with a new formula. A request to fix typos only does not authorize rewriting the opening or adding a call to action.
+
 ## Common problems
 
 | Problem | Decision |

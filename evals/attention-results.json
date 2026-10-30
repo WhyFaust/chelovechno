@@ -1,0 +1,580 @@
+{
+  "issue": "https://github.com/WhyFaust/chelovechno/issues/1",
+  "date": "2026-10-30",
+  "baseline": {
+    "version": "0.3.1",
+    "commit": "8f230b2fe728b34ef3852e2894b38896b8dfcfdb",
+    "entrypoint_sha256": "2fb08491a77b157ad846217728af7dca06c7a9b941661b97c255a694eda4508c",
+    "skill_bundle_sha256": "f2dacf313e01cece6f450c210845311612fa966602cd8234a9c385a7b4c0f9db"
+  },
+  "candidate": {
+    "version": "0.4.0",
+    "commit": "f76c2526f1d181df86fc8ea32a2d4c4ebc93705b",
+    "entrypoint_sha256": "b7557e0b3aa8f2dc389f8bc4685cc8498c110cb22ea11aa82c0092ed732cfd42",
+    "skill_bundle_sha256": "2e1851d89dd8b4c6e9c21ea05cfe8129bbac626df633758b6e31844197908f7e",
+    "english_entrypoint_sha256": "cfd77c9990ce467b4d4dcf978b59ab85a59c843a09bb26d929d57d32b3ddae8e",
+    "english_skill_bundle_sha256": "14ced469baaafc5649582e6be3f1cf0ec9062f3eef33eeae76e504cdb053fe09"
+  },
+  "method": {
+    "generator": "Codex subagents in fresh contexts, inherited parent model and reasoning configuration, no overrides",
+    "model_id": null,
+    "sampling_parameters": null,
+    "model_metadata_note": "The exact model identifier and sampling parameters were not exposed by the agent tools.",
+    "requests": "Same 14 briefs in the same order for both RU instruction editions; each edition generated its batch in a separate fresh agent context.",
+    "request_source": "cases.json: case IDs below; only id and prompt were supplied to the generators",
+    "requests_sha256": "6e910df3daf5d0bd2c419dae298609134a461611d7b2604439e65aba42bcb52c",
+    "fingerprints": {
+      "algorithm": "SHA-256, lowercase hexadecimal",
+      "entrypoint": "Hash the unmodified Git blob bytes of skills/chelovechno/SKILL.md at the recorded baseline or candidate commit; for english_entrypoint_sha256 use SKILL_en.md at candidate.commit.",
+      "bundle_files": [
+        "SKILL{suffix}.md",
+        "references/research{suffix}.md",
+        "references/adaptation{suffix}.md",
+        "references/editing{suffix}.md"
+      ],
+      "bundle_encoding": "Use the listed order, suffix = empty string for RU or _en for EN. Paths are relative to skills/chelovechno, with forward slashes. For each file concatenate UTF-8(path), one NUL byte (0x00), its unmodified Git blob bytes at the recorded commit, and one NUL byte. Hash the complete concatenation with no other separators, newline conversion, BOM insertion or added bytes. Git blob bytes can be read with git show <commit>:skills/chelovechno/<path>.",
+      "scope": "Bundle fingerprints identify the entrypoint and references made available to the generator; references were read as needed. They do not identify a single combined model prompt or the generated dist files.",
+      "requests_encoding": "Read evals/cases.json at candidate.commit, select cases in pairs array order, map each to {id, prompt} in that property order, and hash UTF-8(JSON.stringify(requests, null, 2) + one LF byte)."
+    },
+    "tools": "Local file reads and writes only; no browsing, publication or external actions",
+    "judge": "One independent Codex subagent, given only briefs, checks and anonymized output pairs",
+    "blinding": "Balanced random left/right assignment, concealed until verdict saved; mapping retained per pair",
+    "score_scale": {
+      "0": "fails",
+      "1": "partially meets",
+      "2": "meets"
+    },
+    "score_axes": [
+      "clarity",
+      "specificity",
+      "promise",
+      "voice",
+      "participation"
+    ],
+    "english": "Three additional requests in a fresh generator context using SKILL_en.md, judged without version labels"
+  },
+  "summary": {
+    "baseline_preferred": 0,
+    "candidate_preferred": 1,
+    "ties": 13,
+    "baseline_critical_failures": 0,
+    "candidate_critical_failures": 0,
+    "baseline_editorial_issues": 1,
+    "candidate_editorial_issues": 0,
+    "english_cases_passed": 3
+  },
+  "pairs": [
+    {
+      "id": "preserve-exact-quote",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "Спасибо за отзыв: «Блокнот — отличный подарок». Нам очень приятно получить такие слова!",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Здравствуйте!\n\nСпасибо за отзыв и добрые слова: «Блокнот — отличный подарок».",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба письма короткие и тёплые, дословно сохраняют цитату и не добавляют имён или событий."
+    },
+    {
+      "id": "only-titles",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "Как собрать блокнот с нуля\nБлокнот своими руками: от листов до обложки\nСборка блокнота шаг за шагом",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Блокнот с нуля: от листов до обложки\nКак собрать блокнот своими руками\nКак из бумаги получается блокнот",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "В обоих вариантах ровно три понятных названия с разной подачей; лишних материалов и обещаний времени нет."
+    },
+    {
+      "id": "attention-practical-post",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "Новый телефон не получит заметки из Черновика автоматически. В приложении нет синхронизации, поэтому перед сменой устройства:\n\n1. Экспортируйте архив на старом телефоне.\n2. Сохраните копию архива отдельно от телефона.\n3. Импортируйте архив в Черновик на новом телефоне.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "В Черновике заметки хранятся локально и не переносятся на новый телефон автоматически. Синхронизации в приложении нет.\n\nПеред сменой телефона:\n1. На старом устройстве экспортируйте заметки в архив.\n2. Сохраните отдельную копию архива.\n3. На новом телефоне импортируйте архив.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба сразу объясняют риск переноса, отсутствие синхронизации и все три действия; разница в порядке фраз не мешает задаче."
+    },
+    {
+      "id": "attention-preserve-opening",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "Локальные заметки не переедут на новый телефон сами. Перед сменой телефона экспортируйте архив, сохраните копию отдельно и импортируйте на новом устройстве.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Локальные заметки не переедут на новый телефон сами. Перед сменой телефона экспортируйте архив, сохраните копию отдельно и импортируйте на новом устройстве.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Тексты одинаковы: конкретное начало и все действия сохранены, ненужных правок нет."
+    },
+    {
+      "id": "attention-viral-thin-material",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "Команда планирует тест сервиса для заметок. По замыслу он может помочь разбирать записи.\n\nКак это сработает, ещё предстоит проверить. Даты, результаты, число пользователей и цена пока неизвестны.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Сервис для заметок может помочь разбирать записи. Именно эту возможность команда планирует проверить в тесте.\n\nРезультаты пока неизвестны. Даты теста, число пользователей и цена тоже.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба соразмеряют обещание с материалами: тест только планируется, польза возможна, неизвестные сведения не выдуманы."
+    },
+    {
+      "id": "attention-technical-qualification",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "Немного о настройках Python.\n\nЕсли приложение напрямую передаёт строку из переменной окружения в bool(), даже \"false\" превратится в True: для bool() любая непустая строка даёт True.\n\nЭто относится именно к такому преобразованию. Из этого нельзя делать вывод, что все фреймворки или любые настройки DEBUG ведут себя так же.\n\nЧтобы значение читалось однозначно, явно распознавайте строки \"true\" и \"false\", а неизвестное значение считайте ошибкой настройки.",
+        "critical_failures": [],
+        "editorial_issues": [
+          "Общая первая фраза «Немного о настройках Python» откладывает конкретную проблему до второго абзаца и не выполняет проверку начала."
+        ],
+        "scores": {
+          "clarity": 1,
+          "specificity": 1,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Строка \"false\" даёт True, если напрямую передать её в bool(). Это важно, когда приложение таким способом преобразует значение из переменной окружения.\n\nПричина проста: для bool() любая непустая строка означает True. Смысл слова \"false\" здесь ничего не меняет.\n\nПри таком чтении настройки нужно явно распознавать строки \"true\" и \"false\", а неизвестное значение считать ошибкой настройки. Поведение конкретного фреймворка или настройки DEBUG зависит от способа разбора: прямой вызов bool() на строке нельзя считать общим правилом для них.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "candidate",
+      "blind_preference": "right",
+      "reason": "Правый вариант сразу показывает неожиданный результат bool() и его условие. Оба сохраняют технические оговорки и предложенный разбор значений."
+    },
+    {
+      "id": "attention-honest-description",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "В ролике для новичков показывают, как выбрать бумагу, прошить листы и закрепить обложку блокнота. Подойдёт, если хотите разобраться в основных этапах сборки перед первой попыткой.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Ролик для тех, кто хочет собрать первый блокнот: от выбора бумаги до прошивки листов и крепления обложки. Посмотрите, как устроены эти этапы, прежде чем браться за работу.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба помогают новичку оценить ролик через показанные этапы сборки и не обещают скорость, долговечность или превосходство."
+    },
+    {
+      "id": "attention-calm-email",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "Тема: Макет: план на 12 ноября\n\nАнна, добрый день!\n\nПланируем прислать макет 12 ноября. Если согласование затянется, отдельно предупредим об изменении срока.\n\nПожалуйста, подтвердите, подходит ли вам такой план.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Тема: План передачи макета\n\nАнна, здравствуйте!\n\nПланируем прислать макет 12 ноября. Если согласование затянется, отдельно предупредим об изменении срока.\n\nПожалуйста, подтвердите, подходит ли вам такой план.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Обе темы обозначают макет, письма сохраняют дату, условие изменения срока и просьбу подтвердить план; тон спокойный."
+    },
+    {
+      "id": "attention-game-observation",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "Финальный босс побеждён. Все 47 зелий целы.\n\nМало ли, вдруг ещё пригодятся.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Финальный босс побеждён, все 47 зелий на месте. Вдруг после титров пригодятся.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба коротко раскрывают шутку о 47 нетронутых зельях после победы; советы, мораль и приписанный автору опыт отсутствуют."
+    },
+    {
+      "id": "attention-thanks-no-hook",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "Рады, что помогло!",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Рады, что помогло!",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Одинаковые естественные ответы полностью подходят короткой благодарности и не требуют самостоятельного крючка."
+    },
+    {
+      "id": "attention-varied-posts",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "1.\n\nПеред сменой телефона сохраните локальные заметки: экспортируйте архив на старом устройстве, сохраните копию отдельно и импортируйте архив на новом.\n\n2.\n\nФинальный босс побеждён. В запасе всё те же 47 зелий: мало ли, вдруг впереди настоящий сложный момент.\n\n3.\n\nМастерская Лист планирует открыть заказы на блокноты 12 ноября. Цена пока не утверждена.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "1.\nПеред сменой телефона экспортируйте локальные заметки и сохраните копию отдельно. На новом телефоне импортируйте сохранённые заметки.\n\n2.\nФинальный босс побеждён. Все 47 зелий целы. Мало ли, вдруг дальше будет финальнее.\n\n3.\nМастерская Лист планирует открыть заказы на блокноты 12 ноября. Цена пока не утверждена.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "В обоих наборах три самостоятельных поста с разным ритмом; действия переноса, шутка, план открытия и неизвестная цена сохранены."
+    },
+    {
+      "id": "attention-english-post",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "Your local notes won't move to a new phone automatically. The app has no sync feature.\n\nBefore switching phones, export an archive on your old phone and keep a separate copy. Then import the archive on your new phone.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Your local notes won't move to a new phone automatically. The app has no sync feature.\n\nBefore you switch phones, export an archive on your old phone and keep a separate copy. Then import the archive on your new phone.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба естественно звучат по-английски и сохраняют локальное хранение, отсутствие синхронизации и все действия; разница before switching / before you switch несущественна."
+    },
+    {
+      "id": "attention-typos-only",
+      "blind_labels": {
+        "left": "baseline",
+        "right": "candidate"
+      },
+      "left": {
+        "output": "Немного о заметках. Локальные заметки нужно экспортировать перед сменой телефона.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Немного о заметках. Локальные заметки нужно экспортировать перед сменой телефона.",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба исправляют только «Локалные» на «Локальные». Сохранение общего начала прямо требуется брифом."
+    },
+    {
+      "id": "attention-substantive-question",
+      "blind_labels": {
+        "left": "candidate",
+        "right": "baseline"
+      },
+      "left": {
+        "output": "Неизвестное значение флага можно обработать двумя способами: остановить запуск с ошибкой настройки или выключить функцию и продолжить запуск.\n\nВ первом случае неверная настройка сразу становится заметна, но приложение не запустится. Во втором приложение запустится с выключенной функцией, зато ошибку можно не заметить. Выбор зависит от того, насколько важны эта функция и сам запуск.\n\nПри каком условии вы бы сменили решение: отказались от остановки запуска в пользу отключения функции или наоборот?",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "right": {
+        "output": "Неизвестное значение флага можно обработать двумя способами.\n\nЕсли считать его ошибкой и остановить запуск, неверная настройка станет заметна сразу. Но приложение не запустится, пока её не исправят.\n\nЕсли выключить функцию и продолжить запуск, приложение сможет работать дальше. При этом ошибка в настройках рискует остаться незамеченной.\n\nВыбор зависит от того, насколько важны запуск приложения и сама функция в конкретной ситуации.\n\nКакие условия изменили бы ваш выбор: критичность функции, допустимый простой приложения или что-то ещё?",
+        "critical_failures": [],
+        "editorial_issues": [],
+        "scores": {
+          "clarity": 2,
+          "specificity": 2,
+          "promise": 2,
+          "voice": 2,
+          "participation": 2
+        }
+      },
+      "preferred": "tie",
+      "blind_preference": "tie",
+      "reason": "Оба сначала разбирают две стратегии и их последствия без универсального победителя, затем задают один вопрос об условиях изменения выбора."
+    }
+  ],
+  "english": [
+    {
+      "id": "explicit-english-email",
+      "output": "Hi Anna,\n\nWe plan to send you the design on November 12. If approval takes longer, we'll notify you separately of a revised date.\n\nDoes this plan work for you?",
+      "critical_failures": [],
+      "editorial_issues": [],
+      "checks_passed": true,
+      "reason": "Только тело английского письма: дата, условие переноса и вопрос о плане сохранены, подпись и прежняя договорённость не придуманы."
+    },
+    {
+      "id": "straight-double-quotes-en",
+      "output": "The \"List\" workshop plans to open registration on November 12. The price hasn't been confirmed yet.",
+      "critical_failures": [],
+      "editorial_issues": [],
+      "checks_passed": true,
+      "reason": "Английский текст использует обычные двойные кавычки вокруг List и сохраняет план на 12 ноября и неопределённость цены."
+    },
+    {
+      "id": "attention-english-post",
+      "output": "Your local notes won't move to a new phone automatically. The app has no sync feature.\n\nBefore switching phones, export an archive on your old phone and keep a separate copy. Then import the archive on your new phone.",
+      "critical_failures": [],
+      "editorial_issues": [],
+      "checks_passed": true,
+      "reason": "Естественный короткий пост сразу называет риск переноса и сохраняет экспорт, отдельную копию, импорт и отсутствие синхронизации."
+    }
+  ],
+  "limitations": [
+    "One batch per edition and one model judge; no repeated runs or independent human rating.",
+    "Requests within a batch share an agent context even though the generator was instructed to treat them independently.",
+    "Exact model and sampling metadata were unavailable; this is a session-local comparison, not an exactly reproducible benchmark.",
+    "Most briefs are explicit about constraints; these results do not cover every case or prove behavior on vague real requests.",
+    "Three English-edition checks are a smoke test, not a full English comparison.",
+    "No audience metrics or publication experiment; no claim of increased reach or causal effect."
+  ]
+}

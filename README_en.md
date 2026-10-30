@@ -140,6 +140,8 @@ By default, the agent returns one finished result. Your requested count, length 
 
 Exact field limits and publishing restrictions are checked when relevant. Community rules and the difference between a standalone post and a reply also matter. A few public examples do not define everyone's voice on a platform.
 
+A title or opening line identifies a specific subject and a reason to continue; the piece delivers on that promise. A joke can rest on a recognizable observation, while a useful post offers an explanation or example. A question belongs when its answer would develop the point. A thank-you remains a reply without a separate hook. A request to fix typos only takes priority over strengthening the opening; reach is never guaranteed. See [opening edits](examples/texts_en.md).
+
 ## Research
 
 When a task needs current information, the agent searches, opens the material and verifies key claims first. For fresh topics, the default window is the last **72 hours** relative to execution time. For slow topics, it may widen to seven days and disclose it. Your explicit period takes priority. Historical and explanatory research is not constrained by this news window.

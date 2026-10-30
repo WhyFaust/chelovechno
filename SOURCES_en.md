@@ -15,6 +15,15 @@ Reviewed on October 29, 2026. These writing articles and documentation explain d
 
 Clear-writing principles do not become sentence-length limits, joke quotas or mandatory closing calls to action. Adaptation follows the task, audience and intended use. A platform name does not determine one deliverable.
 
+## Headlines, opening lines and participation
+
+Reread for [issue #1](https://github.com/WhyFaust/chelovechno/issues/1) on October 30, 2026:
+
+- [NN/G, Microcontent (2017)](https://www.nngroup.com/articles/microcontent-how-to-write-headlines-page-titles-and-subject-lines/): titles that stand alone, convey specific information and put meaningful words early.
+- [Meta, Fighting Engagement Bait on Facebook (2017, with updates)](https://about.fb.com/news/2017/12/news-feed-fyi-fighting-engagement-bait-on-facebook/): manufactured reactions differ from substantive requests for help or advice.
+
+Applying these ideas to opening lines in authored posts is the project's editorial choice. Meta's article is historical and about Facebook, not current Threads or X ranking. Neither source establishes increased reach or a universal opening formula.
+
 ## Portability and installation
 
 - [Agent Skills specification](https://agentskills.io/specification): a SKILL.md folder, YAML name and description, matching folder name and relative resource links.
