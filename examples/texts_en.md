@@ -40,6 +40,33 @@ The caption uses the supplied scene without inventing feelings, weather history 
 
 The starting price, business days and "usually" remain. No stock levels, paper quality or limited availability are invented.
 
+## Useful post with an offer
+
+**Brief:** the fictional List workshop helps beginners choose notebook ruling and invites orders. Blank pages leave room for drawing; dots help align lines. Orders open November 12, from 900 RUB, production usually takes five business days, orders by direct message. Write in English.
+
+> Choose your first notebook's ruling around what you want to do on the page.
+>
+> For drawing without guides, blank pages may suit you. If you want help keeping lines aligned, consider dots.
+>
+> From November 12, you can order a notebook from List. Prices start at 900 RUB; production usually takes five business days. Send us a direct message to order.
+
+The explanation helps even without a purchase. The offer follows the subject and retains its terms. This structure serves a sales brief; it is not added to an ordinary explanation.
+
+## A poll with a clear choice
+
+**Brief:** choose the workshop's next beginner tutorial topic: paper choice, stitching or attaching the cover, with room for another suggestion. English plain text; answers in comments. No promised date or participation gift.
+
+> What should the next post about making your first notebook explain?
+>
+> A. Choosing paper.
+> B. Stitching pages.
+> C. Attaching the cover.
+> D. Another topic: suggest your own.
+>
+> Leave a letter or your topic in the comments.
+
+One question serves a specific decision. Options are distinct, the response method is clear, and readers can suggest a topic outside the list.
+
 ## Edit precisely
 
 **Original:** "We are pleased to announce that we plan to open registration on November 12. Participation may cost around 3,000 RUB. The final price has not yet been approved."
@@ -62,9 +89,9 @@ Rhythm and humor transfer; the new action comes from the new brief.
 
 **Request:** "Find something fresh and write me a post." No topic or destination is known.
 
-> What subject and destination should I use: technology for a personal feed, culture for your channel, or your professional field? You can name your own combination.
+> What subject should I search: technology, culture or your professional field? You can name another topic.
 
-A random story cannot stand in for the author's interests. If the conversation already supplies them, do not ask again.
+A random story cannot stand in for the author's interests. Clarify the topic first; the destination can follow if it affects the result. If the conversation already supplies their interests, do not ask again.
 
 ## Search unavailable
 

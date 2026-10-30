@@ -1,6 +1,6 @@
 # Adapt to the task
 
-Read when changing format, reading mode or resolving a material ambiguity. There is no list of supported platforms: one platform can host different kinds of text, and one kind of text can work in several places.
+Read to choose a structure, change format or reading mode, or resolve a material ambiguity. There is no list of supported platforms: one platform can host different kinds of text, and one kind of text can work in several places.
 
 ## Choose by purpose
 
@@ -14,6 +14,17 @@ Start with the explicit request and established context. Then determine what the
 
 These are functional considerations, not mandatory templates. Combine them when the requested deliverable calls for it.
 
+## Structure for the task
+
+Give a standalone post one main purpose. Connect the reader's questions: what happened, what it changes, and what to do if action is needed. These need not become headings. Let a paragraph develop one point; use lists to distinguish steps or options. Do not impose the same sentence count on every paragraph.
+
+| Task | Possible progression |
+|---|---|
+| Useful post with an offer | Explain a specific reader problem and give an applicable answer. Connect it to the author's confirmed offer and a clear next step. The useful section should deliver on its promise even if the reader does not buy |
+| Poll | Ask one clear question for a meaningful choice or discussion. When options are needed, make them distinct; allow another answer when the list is not exhaustive. Make the response method clear for the destination field |
+
+These are options, not rules for every post. Do not add sales to an ordinary useful piece or turn every question into a poll. Use frameworks such as AIDA when requested or appropriate, without printing stage names in the final copy. The balance of useful and promotional text, item count and headline depend on the material. Do not invent discounts, scarcity, product results or promises to analyze responses later.
+
 ## Openings and participation
 
 | Kind of text | How to open and follow through |
@@ -25,7 +36,7 @@ These are functional considerations, not mandatory templates. Combine them when 
 
 A useful piece may need a decision criterion or an explanation of an error; a personal or gaming observation can work through a recognizable scene and humor. Do not put a checklist in every joke or require every piece to be useful, funny and debatable at once.
 
-A question helps when the answer would add experience, a counterexample or a comparison about the point discussed. After explaining the consequences of two approaches, you might ask which condition would change someone's choice. Stock "Agree?" endings, comment keywords and manufactured conflict cannot replace substance. When no follow-up is needed, end on the last worthwhile thought. Requests such as "no question," "calm, no sales pitch" and "fix typos only" take priority; a strong opening can stay as it is.
+A question helps when the answer would add experience, a counterexample or a comparison, or serve the poll's purpose. Stock "Agree?" endings and manufactured conflict cannot replace substance. A keyword is appropriate when the author supplies it as a way to receive material or a service, rather than an added request for reactions. When no follow-up is needed, end on the last worthwhile thought. Requests such as "no question," "calm, no sales pitch" and "fix typos only" take priority; a strong opening can stay as it is.
 
 ## Account for the conversation
 

@@ -36,12 +36,17 @@ Audience response is a separate test after authorized publication: use comparabl
 ## Automated checks
 
 ```bash
+node --test scripts/prepare.test.mjs scripts/release-version.test.mjs
 node scripts/prepare.mjs
 ```
 
-This checks packaging: structure, local links, reference completeness, licenses, matching edition versions and case definitions. Saved `example_outputs` are checked against explicit `example_constraints`: `no_em_dash`, `no_typographic_quotes` and `max_characters` per result label. Platform names do not determine limits in the code. The exact-quote case permits its original quotation marks and dash. Separate Russian and English cases check straight double quotes in new prose.
+This checks packaging: structure, local links, reference completeness, licenses, matching stable edition versions, single-line JSON-compatible descriptions in double quotes and case definitions. Briefs and criteria must be nonempty strings, with criteria supplied as an array. Saved `example_outputs` are checked against explicit `example_constraints`: boolean `no_em_dash` and `no_typographic_quotes`, and nonnegative integer `max_characters` for an existing output label. Length is measured in Unicode code points. Platform names do not determine limits. The exact-quote case permits its original quotation marks and dash.
+
+The build test uses an isolated temporary folder to check both portable editions and rejection of broken metadata, cases and examples. Release tests cover version selection, retries and preserving files on errors.
 
 Saved outputs support editorial review; do not send them with the brief. The command builds both single-file editions. It does not call a model, generate prose or score answers.
+
+The `structure-*` cases cover a useful post with an offer, Russian and English polls, an explanation without an added sale, a functional keyword and an explicitly requested AIDA structure. New examples are editorial drafts; case definitions are not independent model results.
 
 Scenarios cover format selection on one platform, known context, ambiguity, unfamiliar destinations, emails, article depth, spoken attribution, exact quotes, required post fields, reply context, community restrictions, optional tools and explicit English output.
 

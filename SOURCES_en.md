@@ -24,6 +24,16 @@ Reread for [issue #1](https://github.com/WhyFaust/chelovechno/issues/1) on Octob
 
 Applying these ideas to opening lines in authored posts is the project's editorial choice. Meta's article is historical and about Facebook, not current Threads or X ranking. Neither source establishes increased reach or a universal opening formula.
 
+## Post structure and reader action
+
+Read on October 30, 2026, from the author's suggested material:
+
+- Viktoria Pinina and the SMMplanner editors, [How to write social posts: examples](https://smmplanner.com/blog/kak-pisat-tekst-dlya-postov-v-socialnyh-setyah/) (May 6, 2020, Russian): a main point, a logical sequence of reader questions and removal of empty phrasing.
+- Dmitry Zverev, [Two structures for social posts](https://zverinfo.ru/2-struktury-postov/) (June 5, 2026, Russian): useful content leading to an offer and a poll with a clear response method. These inform optional structures in the reference.
+- Maryana Ishkhnelidze, ZHIR, [How to write a social post](https://zhir.media/kak-napisat-post-v-soczseti-instrukcziya/) (Russian): connecting the author's purpose, reader interest and supporting material; meaningful paragraphs and lists.
+
+Project decisions: the useful section should deliver without a purchase, and avoiding reaction bait should not remove a functional call to action. The skill does not adopt the articles' 70/30 ratio, item and sentence quotas, mandatory calls to action, reach advice or platform-limit tables. New examples use our own fictional briefs rather than copying source headlines or posts as templates.
+
 ## Portability and installation
 
 - [Agent Skills specification](https://agentskills.io/specification): a SKILL.md folder, YAML name and description, matching folder name and relative resource links.

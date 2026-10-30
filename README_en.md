@@ -142,6 +142,8 @@ Exact field limits and publishing restrictions are checked when relevant. Commun
 
 A title or opening line identifies a specific subject and a reason to continue; the piece delivers on that promise. A joke can rest on a recognizable observation, while a useful post offers an explanation or example. A question belongs when its answer would develop the point. A thank-you remains a reply without a separate hook. A request to fix typos only takes priority over strengthening the opening; reach is never guaranteed. See [opening edits](examples/texts_en.md).
 
+Optional structures cover a useful post with an offer and a poll. The former helps even without a purchase; the latter uses one clear question for a specific choice or discussion. A supplied way to order or receive material, including a keyword, is preserved. Sales and polls are not added when the task does not call for them. See the [new examples](examples/texts_en.md).
+
 ## Research
 
 When a task needs current information, the agent searches, opens the material and verifies key claims first. For fresh topics, the default window is the last **72 hours** relative to execution time. For slow topics, it may widen to seven days and disclose it. Your explicit period takes priority. Historical and explanatory research is not constrained by this news window.
@@ -176,10 +178,11 @@ News explains what changed for the reader; an article develops a subject; an ema
 Development requires Node.js 22 or later, with no dependencies to install:
 
 ```bash
+node --test scripts/prepare.test.mjs scripts/release-version.test.mjs
 node scripts/prepare.mjs
 ```
 
-This checks structure, local links and completeness of both editions, then builds `dist/chelovechno.md` and `dist/chelovechno_en.md`. GitHub Actions runs the same checks. They verify packaging, not a "humanity score." Behavioral changes are reviewed using the scenarios in `evals/`.
+The tests exercise valid and broken build inputs and release version selection. The build checks structure, local links and completeness of both editions, then creates `dist/chelovechno.md` and `dist/chelovechno_en.md`. GitHub Actions runs the same checks. They verify packaging, not a "humanity score." Behavioral changes are reviewed using the scenarios in `evals/`.
 
 After `main` passes validation, GitHub Actions selects the next version from commit messages since the latest release, following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):
 
