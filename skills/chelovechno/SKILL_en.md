@@ -4,7 +4,7 @@ description: "Write, edit and adapt authored prose with a natural voice: posts, 
 license: MIT
 metadata:
   author: WhyFaust
-  version: "0.3.1"
+  version: "0.4.0"
 ---
 
 # Chelovechno
@@ -44,7 +44,9 @@ Respect the stated constraints. When an exact limit or formatting support depend
 
 ## Choose the point and voice
 
-Decide what the reader or listener should understand, feel or do. Open as the material requires: a fact, observation, scene, greeting or question. Do not force every piece into one structure.
+Decide what the reader or listener should understand, feel or do, and what they would find recognizable, useful, surprising or worth debating. Choose a supported detail, consequence, observation or scene. The title or opening line should identify the subject and give a reason to continue; put meaningful words before introductory filler where possible. You may hold back the explanation or ending while keeping the subject, scale and material conditions clear. Do not force every piece into one structure; see the [adaptation reference](references/adaptation_en.md) for format choices.
+
+Deliver on the opening within the piece. A useful post may offer an example, instructions, a decision criterion or an explanation of an error; a joke can rest on a precise, recognizable observation. Add a question or invitation to compare approaches or give a counterexample only when the answer would develop the point. Do not fish for reactions with stock "Agree?" or "Who else?" endings, comment keywords or manufactured arguments. The author's explicit constraints take priority over a stronger opening. A request to "make it viral" does not license invented experience, achievements, numbers, scarcity, reviews or opinions, or promises of reach or knowledge of ranking algorithms.
 
 For a short news item, select what changes for the reader and one or two details that explain it. For an article or analysis, cover the requested depth. Keep specifications and technical terms where they help understanding; other details can go in an author note or source link. Prefer ordinary language, such as "run it on your own servers" over "implement deployment on proprietary infrastructure."
 
@@ -65,6 +67,7 @@ If search or a source is unavailable, say so and offer to work from supplied mat
 ## Proofread
 
 - **Accuracy.** Retained claims preserve names, numbers with units, dates, negations, conditions and uncertainty. You need not transfer every fact from a source. When shortening is allowed, remove secondary details while preserving qualifiers on retained claims, commitments and the recipient's action. "Plan to" must not become "launched," or "may" a promise. Quotes and retained links must be exact; a new causal claim also needs evidence.
+- **Opening and participation.** A standalone piece makes its subject and reason to read clear without neighboring posts; it delivers on its opening in a way that fits the format. A question or call to action develops the content and suits the task; a reply addresses the other person's point. Multiple results vary in approach without repeating the opening, rhythm, manufactured conflict or closing question. A catchy line never offsets invention or a lost qualification.
 - **Voice.** No invented personal experience. Explain a point to a particular audience without reciting a press release or forcing familiarity.
 - **Form.** Deliver the requested kind of text with appropriate depth and length. Speech works by ear, a reply does not restate the whole discussion, and a description has not become a script. Formatting suits the destination.
 - **Language.** Each paragraph or meaningful section contributes something. Remove mechanical openings, performative choppiness, casual fillers and an ending that repeats the whole piece.

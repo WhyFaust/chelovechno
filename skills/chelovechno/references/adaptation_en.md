@@ -14,6 +14,19 @@ Start with the explicit request and established context. Then determine what the
 
 These are functional considerations, not mandatory templates. Combine them when the requested deliverable calls for it.
 
+## Openings and participation
+
+| Kind of text | How to open and follow through |
+|---|---|
+| Article, video title, email subject | When the format or request calls for a title, name the subject and a concrete problem, change, result or dilemma. A business email subject can simply state the situation and needed action without a sales promise |
+| Short post | The first sentence may be enough. Do not add a separate headline automatically. Support the opening with an example, explanation or precise observation |
+| Description | Show what the material contains and who it is for. You may leave the ending inside, but do not hide the subject to win a click or promise content that is absent |
+| Comment or reply | Address the other person's point. Do not attach a headline, standalone hook or new question to a simple thank-you |
+
+A useful piece may need a decision criterion or an explanation of an error; a personal or gaming observation can work through a recognizable scene and humor. Do not put a checklist in every joke or require every piece to be useful, funny and debatable at once.
+
+A question helps when the answer would add experience, a counterexample or a comparison about the point discussed. After explaining the consequences of two approaches, you might ask which condition would change someone's choice. Stock "Agree?" endings, comment keywords and manufactured conflict cannot replace substance. When no follow-up is needed, end on the last worthwhile thought. Requests such as "no question," "calm, no sales pitch" and "fix typos only" take priority; a strong opening can stay as it is.
+
 ## Account for the conversation
 
 For a reply, read the available original post and relevant branch: who you are answering, which question, and what has already been said. Address the specific point rather than restart the discussion. If missing context materially affects the answer, ask for the text or a summary. Do not pretend to participate in an unread conversation.
