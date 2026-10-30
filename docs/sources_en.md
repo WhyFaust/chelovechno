@@ -1,6 +1,6 @@
 # Research and sources
 
-[Русский](SOURCES.md) | English
+[Русский](sources.md) | English
 
 Reviewed on October 29, 2026. These writing articles and documentation explain decisions in the skill. Instructions and examples were written for this project. Its license does not cover external sources.
 
@@ -53,9 +53,9 @@ Documentation and platforms change. Reopen the relevant primary source before ch
 
 ## Public discussions and optional reading tools
 
-The [Threads, X and Reddit review](evals/platform-review_en.md) records direct links, retrieval methods and sample limits. These examples informed adaptation checks, not claims that news is true or that a platform has one voice.
+The [Threads, X and Reddit review](../evals/reports/platform-review_en.md) records direct links, retrieval methods and sample limits. These examples informed adaptation checks, not claims that news is true or that a platform has one voice.
 
-The [comment review across 10 topics](evals/conversation-review_en.md) adds Threads replies and accessible discussions about running, work, cooking, books, photography, plants, travel, games and friendship. Other people's anecdotes are not transferred to the author.
+The [comment review across 10 topics](../evals/reports/conversation-review_en.md) adds Threads replies and accessible discussions about running, work, cooking, books, photography, plants, travel, games and friendship. Other people's anecdotes are not transferred to the author.
 
 - [Reddit Help: How do I post and comment on Reddit?](https://support.reddithelp.com/hc/en-us/articles/360060422572-How-do-I-post-and-comment-on-Reddit): post titles and descriptions, replies and community rules. This supports distinguishing required components from an unsolicited content package.
 - Agent Reach [README](https://github.com/Panniantong/Agent-Reach/blob/14c213405669414492bda0f8d52cc6531d062c45/docs/README_en.md) and [installation guide](https://github.com/Panniantong/Agent-Reach/blob/14c213405669414492bda0f8d52cc6531d062c45/docs/install.md): documentation reviewed on October 29, 2026. Described as a separate optional tool; no upstream code is included. Check the installed version's channels for current support.

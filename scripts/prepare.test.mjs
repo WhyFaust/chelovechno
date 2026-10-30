@@ -49,6 +49,7 @@ test('builds both portable editions and rejects broken skill inputs', async (t) 
     ['empty check', { checks: [''] }],
     ['non-object outputs', { example_outputs: 'a' }],
     ['non-object constraints', { example_constraints: [] }],
+    ['unknown constraint', { example_constraints: { no_typographic_quote: true }, example_outputs: { post: '«a»' } }],
     ['non-object limits', { example_constraints: { max_characters: 2 } }],
     ['non-text output', { example_outputs: { post: 42 } }],
     ['unknown output limit', { example_constraints: { max_characters: { missing: 2 } } }],

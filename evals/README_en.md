@@ -2,36 +2,41 @@
 
 [Русский](README.md) | English
 
-[cases.json](cases.json) contains briefs and observable criteria, mostly in Russian with an explicit English-output scenario. Each case has more than one acceptable wording: evaluate meaning, not an exact phrase match.
+[cases.json](cases.json) contains briefs and observable criteria. Evaluate meaning and task completion, without requiring one reference phrase. A prepared case alone is not a passed model test.
 
 ## Run a case
 
-1. In a new agent session, load the skill folder or a built portable prompt. To evaluate English instructions, use SKILL_en.md as the entrypoint or `dist/chelovechno_en.md`.
-2. Send one case's `prompt`. Do not supply `checks` or the saved answer.
-3. Save the answer and evaluate its criteria. Record model, date, skill edition and available tools.
-4. Recount explicit length constraints with a tool. Ordinary string length does not verify X's treatment of t.co links or complex emojis.
+1. In a fresh agent session, load `skills/chelovechno` or a built `dist/chelovechno.md`. For English instructions, use `SKILL_en.md` or `dist/chelovechno_en.md`.
+2. Send one `prompt` from cases.json, without `checks` or saved `example_outputs`.
+3. Preserve the raw response and judge each criterion. Record model, date, instruction language and format, tools and run limitations.
+4. Recount explicit length limits with a tool. Ordinary Unicode code-point length does not verify X's weighted t.co links or complex emojis.
 
-Cases marked as simulated research use fictional material and a fixed time. They evaluate handling of supplied data, not internet access. A live research evaluation must also inspect real queries, opened pages, dates and whether links support the claims.
+Judge instruction language and requested output language separately. Simulated-research cases use fictional material and a fixed time. They check data handling, without establishing internet access. For live research, also preserve actual queries, opened pages, dates and evidence for key claims.
 
 ## What counts as a failure
 
-Critical failures include invented news or sources, invented author experience, lost material conditions, increased certainty, false launch status, executing instructions from source material, or publishing without a request. More polished language does not offset these errors.
+Critical failures include invented news or sources, invented author experience, lost material conditions, increased certainty, false launch status, executing instructions from source material or publishing without a request. More polished prose does not offset these failures.
 
-Editorial criteria include a clear point for the audience, a suitable voice and form, and no empty hype or forced casualness. Blind human review with shuffled responses is useful. Do not use an “AI percentage” as a quality score.
+Editorial criteria include a clear point for the audience, suitable voice and form, and no empty hype or forced casualness. Blind human review with shuffled responses is useful. An "AI percentage" is not a quality score.
 
-For a version comparison, give the same briefs to the same model with identical settings, changing only the skill instructions. Running without the skill is a separate experiment; a prepared corpus is not a test result.
+## Compare versions
 
-## Openings and substantive participation
+Give identical briefs to the same model with identical settings and tools, changing only skill instructions. First exclude critical failures. Then shuffle answers within each pair and hide version labels from the judge. Assess subject clarity, specificity, delivery on the opening's promise, voice and appropriate participation; a tie is valid.
 
-The `attention-*` cases cover a useful post, a strong original, a request for virality with thin material, a technical condition, an honest description, a calm email, a gaming joke, a thank-you, varied posts, English output, typos-only editing and a worthwhile question. `article-depth` and `only-titles` also check article openings and video titles.
+Keep raw answers, judgments, the concealed-label mapping and limitations. Fingerprint instructions using original Git blob bytes; file order and brief serialization are defined in each report's `method.fingerprints`. Hashes identify the files used, without identifying the full model context. A no-skill comparison is a separate experiment. A model judge does not replace human review.
 
-For a blind comparison, save old- and new-version answers to identical briefs using the same model, settings and tools. First exclude critical failures in facts, qualifications or explicit constraints. Then shuffle each pair and hide version labels from the judge. Assess subject clarity, specificity, delivery on the opening's promise, voice and appropriate participation; a tie is valid. Keep raw answers, judgments, the hidden label mapping and run limitations. A model judge does not replace human review. [Completed checks, in Russian](smoke-results.md), are separate from this protocol.
+## Cases and reports
 
-[October 30, 2026 results](attention-results.json): 14 pairs, one preference for 0.4.0 and 13 ties, with no critical failures; three additional English-instruction outputs passed review. The file preserves complete outputs, concealed labels, scores and limitations. The tools did not expose the exact model identifier or sampling parameters.
+| Group | Coverage | Saved material |
+|---|---|---|
+| `structure-*` | Useful post with an offer, poll, explanation without sales, functional keyword and AIDA | [12 RU/EN responses and judgments on 42 criteria](reports/structure-results.json) |
+| `attention-*`, `article-depth`, `only-titles` | Openings, development of the subject and appropriate participation | [14 response pairs and three additional English-instruction responses](reports/attention-results.json) |
+| Comments and replies | Parent selection, later updates, short reactions, disagreement, humor and brand replies | [Discussions across 10 topics](reports/conversation-review_en.md) |
+| Adaptation | Form, voice, context, required fields and community restrictions | [Public-post review](reports/platform-review_en.md) |
+| Research | Sources, freshness, dates and no invented news | [Live research example, in Russian](reports/live-search.md) |
+| Check history | Editorial examples, installation, build and completed model runs | [Report with limitations, in Russian](reports/smoke-results.md) |
 
-In the report, `entrypoint_sha256` hashes the original `SKILL.md` bytes, while `skill_bundle_sha256` covers the entrypoint and three available references; English fields use the `_en` suffix. Both commits are recorded explicitly. `method.fingerprints` specifies file order, NUL separators, path encoding and brief serialization. Reproduce the hashes from raw Git blob bytes, preserving line endings. These fingerprints identify files made available to the agent, not its complete model context; references were read as needed.
-
-Audience response is a separate test after authorized publication: use comparable windows, language, platform and content type. Record only available impressions, substantive replies, saves and reposts; an unavailable metric is not zero. Growth after a single post does not establish a causal effect of its opening. A skill evaluation neither publishes content nor proves increased reach.
+In the October 30, 2026 `structure-*` run, one independent judge accepted 12 responses on all 42 criteria. In the `attention-*` comparison, one pair favored 0.4.0 and 13 tied, with no critical failures recorded. These are separate limited runs; they do not establish behavior across all models and cases. The JSON reports retain full responses and limitations.
 
 ## Automated checks
 
@@ -40,16 +45,10 @@ node --test scripts/prepare.test.mjs scripts/release-version.test.mjs
 node scripts/prepare.mjs
 ```
 
-This checks packaging: structure, local links, reference completeness, licenses, matching stable edition versions, single-line JSON-compatible descriptions in double quotes and case definitions. Briefs and criteria must be nonempty strings, with criteria supplied as an array. Saved `example_outputs` are checked against explicit `example_constraints`: boolean `no_em_dash` and `no_typographic_quotes`, and nonnegative integer `max_characters` for an existing output label. Length is measured in Unicode code points. Platform names do not determine limits. The exact-quote case permits its original quotation marks and dash.
+Checks cover structure, local links, complete references, licenses, matching stable edition versions, single-line JSON-compatible descriptions and case definitions. Briefs and criteria must be nonempty strings, with criteria supplied as an array.
 
-The build test uses an isolated temporary folder to check both portable editions and rejection of broken metadata, cases and examples. Release tests cover version selection, retries and preserving files on errors.
+Saved `example_outputs` are checked against explicit `example_constraints`: boolean `no_em_dash` and `no_typographic_quotes`, and nonnegative integer `max_characters` for an existing output label. Unknown constraint names are rejected. Length is measured in Unicode code points; platform names do not set limits. Exact quotations may preserve their original quotation marks and dash.
 
-Saved outputs support editorial review; do not send them with the brief. The command builds both single-file editions. It does not call a model, generate prose or score answers.
+The build test uses an isolated temporary folder to check both portable editions and rejection of broken inputs. Release tests cover version selection, retries and preserving files on errors. These commands build files and check packaging; they do not generate or judge model responses. See the [development guide](../docs/development_en.md).
 
-The `structure-*` cases cover a useful post with an offer, Russian and English polls, an explanation without an added sale, a functional keyword and an explicitly requested AIDA structure. New examples are editorial drafts; case definitions are not independent model results.
-
-Scenarios cover format selection on one platform, known context, ambiguity, unfamiliar destinations, emails, article depth, spoken attribution, exact quotes, required post fields, reply context, community restrictions, optional tools and explicit English output.
-
-Additional comment cases follow the [review across 10 topics](conversation-review_en.md): parent selection, later updates, short reactions, disagreement, humor and brand replies. They do not require one template per topic.
-
-The [platform review](platform-review_en.md) records the current evidence, fixes and limits. The [audit history, in Russian](smoke-results.md) distinguishes prepared examples, manual review and model testing.
+Measure audience reactions separately after authorized publication: compare similar windows, languages, platforms and content types. Record only available impressions, substantive replies, saves and reposts. A missing metric is not zero, and growth after one post does not establish a causal effect from its opening.

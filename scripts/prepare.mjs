@@ -44,6 +44,9 @@ for (const item of cases) {
   const constraints = item.example_constraints ?? {};
   assert(typeof outputs === 'object' && !Array.isArray(outputs), `${item.id}: invalid example outputs`);
   assert(typeof constraints === 'object' && !Array.isArray(constraints), `${item.id}: invalid example constraints`);
+  for (const key of Object.keys(constraints)) {
+    assert(['no_em_dash', 'no_typographic_quotes', 'max_characters'].includes(key), `${item.id}: unknown example constraint ${key}`);
+  }
   const limits = constraints.max_characters ?? {};
   assert(typeof limits === 'object' && !Array.isArray(limits), `${item.id}: invalid example limits`);
   for (const flag of ['no_em_dash', 'no_typographic_quotes']) {
