@@ -30,7 +30,7 @@ Defaults: Russian, one finished result, tone suited to the task. An explicit req
 | Find fresh material | First follow the [research reference](references/research_en.md), then produce the requested kind of text |
 | Suggest topics, titles, an outline or a critique | Return that deliverable without adding the full piece |
 
-Read the adaptation reference when changing format, reading mode or resolving a material ambiguity. Do not load every reference for an obvious task. In a chat without file access, use the complete single-file edition.
+Use the adaptation reference to choose a structure, change format or reading mode, or resolve a material ambiguity. Do not load every reference for an obvious task. In a chat without file access, use the complete single-file edition.
 
 ## Adapt the form
 
@@ -44,9 +44,9 @@ Respect the stated constraints. When an exact limit or formatting support depend
 
 ## Choose the point and voice
 
-Decide what the reader or listener should understand, feel or do, and what they would find recognizable, useful, surprising or worth debating. Choose a supported detail, consequence, observation or scene. The title or opening line should identify the subject and give a reason to continue; put meaningful words before introductory filler where possible. You may hold back the explanation or ending while keeping the subject, scale and material conditions clear. Do not force every piece into one structure; see the [adaptation reference](references/adaptation_en.md) for format choices.
+Identify the text's main purpose and what the reader or listener should understand, feel or do. Choose a supported detail, consequence, observation or scene relevant to them. The title or opening line should identify the subject and give a reason to continue; put meaningful words before introductory filler where possible. You may hold back the explanation or ending while keeping the subject, scale and material conditions clear. Choose a structure for the task and follow an explicitly requested framework without inventing material; see options in the [adaptation reference](references/adaptation_en.md).
 
-Deliver on the opening within the piece. A useful post may offer an example, instructions, a decision criterion or an explanation of an error; a joke can rest on a precise, recognizable observation. Add a question or invitation to compare approaches or give a counterexample only when the answer would develop the point. Do not fish for reactions with stock "Agree?" or "Who else?" endings, comment keywords or manufactured arguments. The author's explicit constraints take priority over a stronger opening. A request to "make it viral" does not license invented experience, achievements, numbers, scarcity, reviews or opinions, or promises of reach or knowledge of ranking algorithms.
+Deliver on the opening within the piece. A useful post may offer an example, instructions, a decision criterion or an explanation of an error; a joke can rest on a precise, recognizable observation. A question should help the discussion; a call to action should serve the author's task. Do not add stock "Agree?" or "Who else?" endings, comment keywords or manufactured arguments just to collect reactions. Preserve the supplied way to order, participate or receive material, including a keyword when the author specifies its purpose. The author's explicit constraints take priority over a stronger opening. A request to "make it viral" does not license invented experience, achievements, numbers, scarcity, reviews or opinions, or promises of reach or knowledge of ranking algorithms.
 
 For a short news item, select what changes for the reader and one or two details that explain it. For an article or analysis, cover the requested depth. Keep specifications and technical terms where they help understanding; other details can go in an author note or source link. Prefer ordinary language, such as "run it on your own servers" over "implement deployment on proprietary infrastructure."
 

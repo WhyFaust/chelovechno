@@ -36,17 +36,36 @@ await checkLinks(root);
 const cases = JSON.parse(await read(resolve(root, 'evals/cases.json')));
 assert(Array.isArray(cases) && cases.length > 0, 'Missing evaluation cases');
 assert.equal(new Set(cases.map((item) => item.id)).size, cases.length, 'Duplicate case IDs');
+const hasText = (value) => typeof value === 'string' && value.trim().length > 0;
 for (const item of cases) {
-  assert(item.id && item.prompt && item.checks?.length, 'Incomplete evaluation case');
-  for (const [label, text] of Object.entries(item.example_outputs ?? {})) {
-    if (item.example_constraints?.no_em_dash) {
+  assert(hasText(item.id) && hasText(item.prompt), 'Missing case ID or prompt');
+  assert(Array.isArray(item.checks) && item.checks.length > 0 && item.checks.every(hasText), `${item.id}: invalid checks`);
+  const outputs = item.example_outputs ?? {};
+  const constraints = item.example_constraints ?? {};
+  assert(typeof outputs === 'object' && !Array.isArray(outputs), `${item.id}: invalid example outputs`);
+  assert(typeof constraints === 'object' && !Array.isArray(constraints), `${item.id}: invalid example constraints`);
+  for (const key of Object.keys(constraints)) {
+    assert(['no_em_dash', 'no_typographic_quotes', 'max_characters'].includes(key), `${item.id}: unknown example constraint ${key}`);
+  }
+  const limits = constraints.max_characters ?? {};
+  assert(typeof limits === 'object' && !Array.isArray(limits), `${item.id}: invalid example limits`);
+  for (const flag of ['no_em_dash', 'no_typographic_quotes']) {
+    assert(constraints[flag] === undefined || typeof constraints[flag] === 'boolean', `${item.id}: invalid ${flag}`);
+  }
+  for (const [label, limit] of Object.entries(limits)) {
+    assert(Object.hasOwn(outputs, label), `${item.id}: limit for missing example ${label}`);
+    assert(Number.isSafeInteger(limit) && limit >= 0, `${item.id}: invalid limit for ${label}`);
+  }
+  for (const [label, text] of Object.entries(outputs)) {
+    assert.equal(typeof text, 'string', `${item.id}: non-text ${label} example`);
+    if (constraints.no_em_dash) {
       assert(!text.includes('\u2014'), `${item.id}: em dash in ${label} example`);
     }
-    if (item.example_constraints?.no_typographic_quotes) {
+    if (constraints.no_typographic_quotes) {
       assert(!/[\u00ab\u00bb\u2039\u203a\u201c-\u201f]/u.test(text), `${item.id}: typographic quotes in ${label} example`);
     }
-    const limit = item.example_constraints?.max_characters?.[label];
-    if (limit !== undefined) {
+    if (Object.hasOwn(limits, label)) {
+      const limit = limits[label];
       assert([...text].length <= limit, `${item.id}: ${label} example exceeds ${limit} characters`);
     }
   }
@@ -60,11 +79,12 @@ for (const [suffix, licenseHeading] of [['', 'Лицензия'], ['_en', 'Licen
   const frontmatter = entry.match(/^---\n([\s\S]+?)\n---\n/);
   assert(frontmatter, `${filename}: missing frontmatter`);
   assert.match(frontmatter[1], new RegExp(`^name: ${basename(skill)}$`, 'm'));
-  const description = frontmatter[1].match(/^description: "(.+)"$/m)?.[1];
-  assert(description && description.length <= 1024, `${filename}: invalid description`);
+  const description = JSON.parse(frontmatter[1].match(/^description: (".*")$/m)?.[1] ?? 'null');
+  assert(hasText(description) && [...description].length <= 1024, `${filename}: invalid description`);
   assert.match(frontmatter[1], /^license: MIT$/m);
   const version = frontmatter[1].match(/^  version: "([^"]+)"$/m)?.[1];
   assert(version, `${filename}: missing version`);
+  assert.match(version, /^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)$/, `${filename}: expected a stable release version`);
   expectedVersion ??= version;
   assert.equal(version, expectedVersion, 'Skill translations have different versions');
 
