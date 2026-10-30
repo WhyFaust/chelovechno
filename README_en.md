@@ -181,7 +181,18 @@ node scripts/prepare.mjs
 
 This checks structure, local links and completeness of both editions, then builds `dist/chelovechno.md` and `dist/chelovechno_en.md`. GitHub Actions runs the same checks. They verify packaging, not a "humanity score." Behavioral changes are reviewed using the scenarios in `evals/`.
 
-After `main` passes validation, GitHub Actions publishes the new `metadata.version` from `skills/chelovechno/SKILL.md`: a `vX.Y.Z` tag, a ZIP of the skill folder and both portable Markdown files. Update the version in `SKILL.md` and `SKILL_en.md` in the same PR before a release. Published versions are skipped; changes without a version bump do not create another release. To retry, run the "Check skill" workflow manually on `main`. If publishing left a draft, finish or delete it before retrying.
+After `main` passes validation, GitHub Actions selects the next version from commit messages since the latest release, following [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/):
+
+| Commits | Version bump |
+|---|---|
+| `fix:`, `perf:` | patch: `0.4.0` → `0.4.1` |
+| `feat:` | minor: `0.4.0` → `0.5.0` |
+| `!` before `:` or a `BREAKING CHANGE:` / `BREAKING-CHANGE:` footer | major: `0.4.0` → `1.0.0` |
+| `docs:`, `test:`, `chore:`, `ci:`, `build:`, `style:`, `refactor:` without a breaking change | No release |
+
+The highest bump across all new commits wins. Scopes are supported: `fix(parser): ...`. A regular merge includes the commits inside the PR; a squash merge needs the appropriate final commit title.
+
+The workflow updates `metadata.version` in `SKILL.md` and `SKILL_en.md`, validates the build, commits the version to `main` and publishes a `vX.Y.Z` tag, a ZIP of the skill folder and both portable Markdown files. No manual version edits are needed. Retrying does not bump the version again. To resume an unfinished publication, run the "Check skill" workflow manually on `main`; if a release draft remains, finish or delete it before retrying.
 
 Quality depends on the model, material and task. This skill does not determine authorship or promise AI-detector results. News still needs source verification; the author's personal experience must come from the author.
 

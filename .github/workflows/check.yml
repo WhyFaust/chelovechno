@@ -13,6 +13,7 @@ jobs:
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
+      - run: node --test scripts/release-version.test.mjs
       - run: node scripts/prepare.mjs
 
   release:
@@ -27,19 +28,26 @@ jobs:
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
+          ref: main
           fetch-depth: 0
-          persist-credentials: false
       - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
         with:
           node-version: '22'
-      - run: node scripts/prepare.mjs
+      - run: node --test scripts/release-version.test.mjs
       - name: Publish new skill version
+        shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}
         run: |
-          tag=$(sed -nE 's/^  version: "([0-9]+\.[0-9]+\.[0-9]+)"$/v\1/p' skills/chelovechno/SKILL.md)
-          test -n "$tag"
+          latest=$(gh release view --json tagName --jq '.tagName')
+          git merge-base --is-ancestor "$latest" HEAD
+          version=$(git log --format=%B%x00 "$latest"..HEAD | node scripts/release-version.mjs "$latest")
+          if [ -z "$version" ]; then
+            echo "No release-worthy commits since $latest"
+            exit 0
+          fi
+          tag="v$version"
           if draft=$(gh release view "$tag" --json isDraft --jq '.isDraft'); then
             if [ "$draft" = false ]; then
               echo "$tag is already published"
@@ -48,10 +56,19 @@ jobs:
             echo "An unfinished draft for $tag exists; finish or remove it before retrying" >&2
             exit 1
           fi
-          if git show-ref --verify --quiet "refs/tags/$tag"; then
-            test "$(git rev-parse "$tag^{commit}")" = "$GITHUB_SHA"
+          node scripts/prepare.mjs
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- skills/chelovechno/SKILL.md skills/chelovechno/SKILL_en.md
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(release): $tag"
           fi
+          sha=$(git rev-parse HEAD)
+          if git show-ref --verify --quiet "refs/tags/$tag"; then
+            test "$(git rev-parse "$tag^{commit}")" = "$sha"
+          fi
+          git push origin HEAD:main
           git -c core.autocrlf=false archive --format=zip --prefix=chelovechno/ \
-            --output=dist/chelovechno.zip "$GITHUB_SHA:skills/chelovechno"
+            --output=dist/chelovechno.zip "$sha:skills/chelovechno"
           gh release create "$tag" dist/chelovechno.zip dist/chelovechno.md dist/chelovechno_en.md \
-            --target "$GITHUB_SHA" --title "$tag" --generate-notes
+            --target "$sha" --title "$tag" --generate-notes
