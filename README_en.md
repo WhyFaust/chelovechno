@@ -181,6 +181,8 @@ node scripts/prepare.mjs
 
 This checks structure, local links and completeness of both editions, then builds `dist/chelovechno.md` and `dist/chelovechno_en.md`. GitHub Actions runs the same checks. They verify packaging, not a "humanity score." Behavioral changes are reviewed using the scenarios in `evals/`.
 
+After `main` passes validation, GitHub Actions publishes the new `metadata.version` from `skills/chelovechno/SKILL.md`: a `vX.Y.Z` tag, a ZIP of the skill folder and both portable Markdown files. Update the version in `SKILL.md` and `SKILL_en.md` in the same PR before a release. Published versions are skipped; changes without a version bump do not create another release. To retry, run the "Check skill" workflow manually on `main`. If publishing left a draft, finish or delete it before retrying.
+
 Quality depends on the model, material and task. This skill does not determine authorship or promise AI-detector results. News still needs source verification; the author's personal experience must come from the author.
 
 ## License
