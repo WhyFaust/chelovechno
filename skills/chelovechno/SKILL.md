@@ -4,7 +4,7 @@ description: "Пишет, редактирует и адаптирует авт�
 license: MIT
 metadata:
   author: WhyFaust
-  version: "0.5.0"
+  version: "0.6.0"
 ---
 
 # Человечно
