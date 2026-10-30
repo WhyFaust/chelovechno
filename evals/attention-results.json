@@ -4,12 +4,16 @@
   "baseline": {
     "version": "0.3.1",
     "commit": "8f230b2fe728b34ef3852e2894b38896b8dfcfdb",
-    "skill_sha256": "f2dacf313e01cece6f450c210845311612fa966602cd8234a9c385a7b4c0f9db"
+    "entrypoint_sha256": "2fb08491a77b157ad846217728af7dca06c7a9b941661b97c255a694eda4508c",
+    "skill_bundle_sha256": "f2dacf313e01cece6f450c210845311612fa966602cd8234a9c385a7b4c0f9db"
   },
   "candidate": {
     "version": "0.4.0",
-    "skill_sha256": "2e1851d89dd8b4c6e9c21ea05cfe8129bbac626df633758b6e31844197908f7e",
-    "english_skill_sha256": "14ced469baaafc5649582e6be3f1cf0ec9062f3eef33eeae76e504cdb053fe09"
+    "commit": "f76c2526f1d181df86fc8ea32a2d4c4ebc93705b",
+    "entrypoint_sha256": "b7557e0b3aa8f2dc389f8bc4685cc8498c110cb22ea11aa82c0092ed732cfd42",
+    "skill_bundle_sha256": "2e1851d89dd8b4c6e9c21ea05cfe8129bbac626df633758b6e31844197908f7e",
+    "english_entrypoint_sha256": "cfd77c9990ce467b4d4dcf978b59ab85a59c843a09bb26d929d57d32b3ddae8e",
+    "english_skill_bundle_sha256": "14ced469baaafc5649582e6be3f1cf0ec9062f3eef33eeae76e504cdb053fe09"
   },
   "method": {
     "generator": "Codex subagents in fresh contexts, inherited parent model and reasoning configuration, no overrides",
@@ -19,6 +23,19 @@
     "requests": "Same 14 briefs in the same order for both RU instruction editions; each edition generated its batch in a separate fresh agent context.",
     "request_source": "cases.json: case IDs below; only id and prompt were supplied to the generators",
     "requests_sha256": "6e910df3daf5d0bd2c419dae298609134a461611d7b2604439e65aba42bcb52c",
+    "fingerprints": {
+      "algorithm": "SHA-256, lowercase hexadecimal",
+      "entrypoint": "Hash the unmodified Git blob bytes of skills/chelovechno/SKILL.md at the recorded baseline or candidate commit; for english_entrypoint_sha256 use SKILL_en.md at candidate.commit.",
+      "bundle_files": [
+        "SKILL{suffix}.md",
+        "references/research{suffix}.md",
+        "references/adaptation{suffix}.md",
+        "references/editing{suffix}.md"
+      ],
+      "bundle_encoding": "Use the listed order, suffix = empty string for RU or _en for EN. Paths are relative to skills/chelovechno, with forward slashes. For each file concatenate UTF-8(path), one NUL byte (0x00), its unmodified Git blob bytes at the recorded commit, and one NUL byte. Hash the complete concatenation with no other separators, newline conversion, BOM insertion or added bytes. Git blob bytes can be read with git show <commit>:skills/chelovechno/<path>.",
+      "scope": "Bundle fingerprints identify the entrypoint and references made available to the generator; references were read as needed. They do not identify a single combined model prompt or the generated dist files.",
+      "requests_encoding": "Read evals/cases.json at candidate.commit, select cases in pairs array order, map each to {id, prompt} in that property order, and hash UTF-8(JSON.stringify(requests, null, 2) + one LF byte)."
+    },
     "tools": "Local file reads and writes only; no browsing, publication or external actions",
     "judge": "One independent Codex subagent, given only briefs, checks and anonymized output pairs",
     "blinding": "Balanced random left/right assignment, concealed until verdict saved; mapping retained per pair",

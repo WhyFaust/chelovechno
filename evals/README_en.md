@@ -29,6 +29,8 @@ For a blind comparison, save old- and new-version answers to identical briefs us
 
 [October 30, 2026 results](attention-results.json): 14 pairs, one preference for 0.4.0 and 13 ties, with no critical failures; three additional English-instruction outputs passed review. The file preserves complete outputs, concealed labels, scores and limitations. The tools did not expose the exact model identifier or sampling parameters.
 
+In the report, `entrypoint_sha256` hashes the original `SKILL.md` bytes, while `skill_bundle_sha256` covers the entrypoint and three available references; English fields use the `_en` suffix. Both commits are recorded explicitly. `method.fingerprints` specifies file order, NUL separators, path encoding and brief serialization. Reproduce the hashes from raw Git blob bytes, preserving line endings. These fingerprints identify files made available to the agent, not its complete model context; references were read as needed.
+
 Audience response is a separate test after authorized publication: use comparable windows, language, platform and content type. Record only available impressions, substantive replies, saves and reposts; an unavailable metric is not zero. Growth after a single post does not establish a causal effect of its opening. A skill evaluation neither publishes content nor proves increased reach.
 
 ## Automated checks
