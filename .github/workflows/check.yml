@@ -14,3 +14,44 @@ jobs:
         with:
           node-version: '22'
       - run: node scripts/prepare.mjs
+
+  release:
+    needs: check
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: release
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: '22'
+      - run: node scripts/prepare.mjs
+      - name: Publish new skill version
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          tag=$(sed -nE 's/^  version: "([0-9]+\.[0-9]+\.[0-9]+)"$/v\1/p' skills/chelovechno/SKILL.md)
+          test -n "$tag"
+          if draft=$(gh release view "$tag" --json isDraft --jq '.isDraft'); then
+            if [ "$draft" = false ]; then
+              echo "$tag is already published"
+              exit 0
+            fi
+            echo "An unfinished draft for $tag exists; finish or remove it before retrying" >&2
+            exit 1
+          fi
+          if git show-ref --verify --quiet "refs/tags/$tag"; then
+            test "$(git rev-parse "$tag^{commit}")" = "$GITHUB_SHA"
+          fi
+          git -c core.autocrlf=false archive --format=zip --prefix=chelovechno/ \
+            --output=dist/chelovechno.zip "$GITHUB_SHA:skills/chelovechno"
+          gh release create "$tag" dist/chelovechno.zip dist/chelovechno.md dist/chelovechno_en.md \
+            --target "$GITHUB_SHA" --title "$tag" --generate-notes
